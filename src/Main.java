@@ -1,13 +1,19 @@
+import DesignPattern.Observer.Push.InstagramApp;
+import DesignPattern.Observer.Push.IphoneSystem;
+import DesignPattern.Observer.Push.Observer;
+import DesignPattern.Observer.Push.WhatsappApp;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-void main() {
-    //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-    // to see how IntelliJ IDEA suggests fixing it.
-    IO.println(String.format("Hello and welcome!"));
+void main(String[] args) {
 
-    for (int i = 1; i <= 5; i++) {
-        //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-        // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        IO.println("i = " + i);
-    }
+    IphoneSystem iphone = new IphoneSystem();
+    Observer whatsapp = new WhatsappApp();
+    Observer instagram = new InstagramApp();
+
+    iphone.addObserver(whatsapp);
+    iphone.addObserver(instagram);
+
+    iphone.newNotification("New message from Mom");
+
 }
