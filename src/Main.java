@@ -16,4 +16,9 @@ void main(String[] args) {
 
     iphone.newNotification("New message from Mom");
 
+    DesignPattern.Observer.Pull.IphoneSystem iphonePull = new DesignPattern.Observer.Pull.IphoneSystem();
+    DesignPattern.Observer.Pull.Observer whatsApp = new DesignPattern.Observer.Pull.WhatsAppApp(iphonePull);
+    iphonePull.addObserver(whatsApp);
+    iphonePull.newNotification("Battery Low");
+
 }
